@@ -1,0 +1,1 @@
+Slave docker Node used with Jenkins Docker Plugin
