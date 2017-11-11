@@ -42,10 +42,14 @@ RUN apk update \
 RUN sed -i /etc/ssh/sshd_config \
         -e 's/#PermitRootLogin.*/PermitRootLogin no/' \
         -e 's/#RSAAuthentication.*/RSAAuthentication yes/'  \
+        -e 's/#PermitUserEnvironment.*/PermitUserEnvironment yes/' \
         -e 's/#PasswordAuthentication.*/PasswordAuthentication no/' \
         -e 's/#SyslogFacility.*/SyslogFacility AUTH/' \
         -e 's/#LogLevel.*/LogLevel DEBUG/' \
-    && mkdir /var/run/sshd 
+    && mkdir /var/run/sshd \
+    && echo "export PATH=\${PATH}:/usr/local/bin" > /home/jenkins/.bashrc \
+    && chown jenkins /home/jenkins/.bashrc \
+    && chgrp jenkins /home/jenkins/.bashrc  
 
 VOLUME "${JENKINS_AGENT_HOME}" "/tmp" "/run" "/var/run"
 WORKDIR "${JENKINS_AGENT_HOME}"
