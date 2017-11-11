@@ -1,28 +1,19 @@
-# Jenkins SSH slave Docker image
+*Directly inspired from [jenkinsci/ssh-slave](https://hub.docker.com/r/jenkinsci/ssh-slave/)* and  [_jenkins/ssh-slave_](https://hub.docker.com/r/jenkins/ssh-slave/)
 
-[`jenkinsci/ssh-slave`](https://hub.docker.com/r/jenkinsci/ssh-slave/)
+# Why a new version ?
 
-A [Jenkins](https://jenkins-ci.org) slave using SSH to establish connection.
+There are some differences : 
 
-See [Jenkins Distributed builds](https://wiki.jenkins-ci.org/display/JENKINS/Distributed+builds) for more info.
+- this version is based on Alpine instead Debian
+- it's a **Docker In Docker** version (you can use Docker inside)  based on official Docker DinD image
 
-## Running
+# Jenkins DinD SSH slave Docker image
 
-To run a Docker container
+Available on Docker Hub [wedroid/jenkins-dind-ssh-slave](https://hub.docker.com/r/wedroid/jenkins-dind-ssh-slave/)
 
-```bash
-docker run jenkinsci/ssh-slave "<public key>"
-```
 
-You'll then be able to connect this slave using ssh-slaves-plugin as "jenkins" with the matching private key.
 
 ### How to use this image with Docker Plugin
 
-To use this image with [Docker Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Docker+Plugin), you need to
-pass the public SSH key using environment variable `JENKINS_SLAVE_SSH_PUBKEY` and not as a startup argument.
+To use this image with Jenkins just follow **Launch via SSH** paragraph in this [_page (Docker Plugin)_](https://wiki.jenkins-ci.org/display/JENKINS/Docker+Plugin) and use _wedroid/jenkins-dind-ssh-slave_ instead  _jenkins/ssh-slave_
 
-In _Environment_ field of the Docker Template (advanced section), just add:
-
-    JENKINS_SLAVE_SSH_PUBKEY=<YOUR PUBLIC SSH KEY HERE>
-
-Don't put quotes around the public key. You should be all set.
