@@ -1,3 +1,5 @@
+[![Docker Build Status](https://img.shields.io/docker/build/wedroid/jenkins-dind-ssh-slave.svg?style=flat-square)](https://hub.docker.com/r/wedroid/jenkins-dind-ssh-slave/)[![](https://images.microbadger.com/badges/image/wedroid/jenkins-dind-ssh-slave:1.0.svg)](https://microbadger.com/images/wedroid/jenkins-dind-ssh-slave:1.0)
+
 *Directly inspired from [jenkinsci/ssh-slave](https://hub.docker.com/r/jenkinsci/ssh-slave/)* and  [_jenkins/ssh-slave_](https://hub.docker.com/r/jenkins/ssh-slave/)
 
 # Why this image ?
