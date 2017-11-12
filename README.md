@@ -17,7 +17,11 @@ Available on Docker Hub [wedroid/jenkins-dind-ssh-slave](https://hub.docker.com/
 
 To use this image with Jenkins just follow **Launch via SSH** paragraph in this [_page (Docker Plugin)_](https://wiki.jenkins-ci.org/display/JENKINS/Docker+Plugin) and use _wedroid/jenkins-dind-ssh-slave_ instead  _jenkins/ssh-slave_
 
+
+
 ![](https://i.imgur.com/42hFzyk.png)
+
+
 
 ### Where is Docker ?
 
@@ -25,9 +29,11 @@ Docker bin is available in **/usr/local/bin**
 
 
 
-~~For convenience, I suggest you to add an environment variable in Node properties~~ Environement variables aren't correctly save.   
+~~For convenience, I suggest you to add an environment variable in Node properties~~ Environement variables aren't correctly save.   [Issue open](https://github.com/jenkinsci/docker-plugin/issues/553)
 
 ![](https://i.imgur.com/4cO8Kp5.png)
+
+
 
 ### Test
 
