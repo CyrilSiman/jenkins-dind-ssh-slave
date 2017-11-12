@@ -17,7 +17,17 @@ Available on Docker Hub [wedroid/jenkins-dind-ssh-slave](https://hub.docker.com/
 
 To use this image with Jenkins just follow **Launch via SSH** paragraph in this [_page (Docker Plugin)_](https://wiki.jenkins-ci.org/display/JENKINS/Docker+Plugin) and use _wedroid/jenkins-dind-ssh-slave_ instead  _jenkins/ssh-slave_
 
+![](https://i.imgur.com/42hFzyk.png)
 
+### Where is Docker ?
+
+Docker bin is available in **/usr/local/bin**
+
+
+
+~~For convenience, I suggest you to add an environment variable in Node properties~~ Environement variables aren't correctly save.   
+
+![](https://i.imgur.com/4cO8Kp5.png)
 
 ### Test
 
@@ -26,6 +36,8 @@ To use this image with Jenkins just follow **Launch via SSH** paragraph in this 
 2. Fill  `Restrict where this project can be run` field with the label set in plugin configuration
 
 3. Add a build step, select `Execute shell`and fill field with _/usr/local/bin/docker --version_
+
+   ![](https://i.imgur.com/pnYWveS.png)
 
 4. Save and execute your build
 
