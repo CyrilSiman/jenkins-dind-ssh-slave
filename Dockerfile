@@ -38,7 +38,7 @@ RUN addgroup -g ${gid} ${group} \
 
 # setup SSH server
 RUN apk update \
-    && apk add --no-cache bash openssh openjdk8 
+    && apk add --no-cache bash openssh openjdk8 git subversion curl wget 
 RUN sed -i /etc/ssh/sshd_config \
         -e 's/#PermitRootLogin.*/PermitRootLogin no/' \
         -e 's/#RSAAuthentication.*/RSAAuthentication yes/'  \
