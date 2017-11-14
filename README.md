@@ -2,9 +2,21 @@
 
 *Directly inspired from [jenkinsci/ssh-slave](https://hub.docker.com/r/jenkinsci/ssh-slave/)* and  [_jenkins/ssh-slave_](https://hub.docker.com/r/jenkins/ssh-slave/)
 
+
+
+[How to use this image with Docker Plugin](#How-to-use-this-image-with-Docker-Plugin)
+
+[Where is Docker ?](#Where-is-Docker-?)
+
+[Test in Jenkins](#Test-in-Jenkins)
+
+[Extend this image](#Extend-this-image)
+
+
+
 # Why this image ?
 
-I used this image as _**FROM**_ for my Jenkins Docker slaves ([sample](https://github.com/CyrilSiman/jenkins-dind-ssh-slave-node))
+I used this image as _**FROM**_ for my Jenkins Docker slaves
 
 Compare to ssh-slave this image have some important differences  : 
 
@@ -77,3 +89,9 @@ For convenience, I suggest you to add an environment variable in Docker Agent Te
    Docker version 17.10.0-ce, build f4ffd25
    ```
 
+
+
+
+### Extend this image
+
+ ([sample with Node](https://github.com/CyrilSiman/jenkins-dind-ssh-slave-node)) 
