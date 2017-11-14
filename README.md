@@ -20,8 +20,8 @@ I used this image as _**FROM**_ for my Jenkins Docker slaves
 
 Compare to ssh-slave this image have some important differences  : 
 
-- this version is based on Alpine instead Debian (~130Mo vs ~256Mo)
-- it's a **Docker In Docker** version (you can use Docker inside)  based on official Docker DinD image
+- this version is based on Alpine instead Debian (~311Mo vs ~658Mo)
+- it's a **Docker In Docker** version (you can use Docker inside)  based on official Docker 17.11 DinD image
 - Pre-installed : git, subversion, curl, wget
 
 
