@@ -2,6 +2,7 @@
 
 set -ex
 
+
 # The MIT License
 #
 #  Original Work Copyright (c) 2015, CloudBees, Inc.
@@ -46,7 +47,8 @@ if [[ $# -gt 0 ]]; then
     shift 1
   else
     ssh-keygen -A
-    exec "$@" #-E /var/log/sshd.log
+    #exec "$@" #-E /var/log/sshd.log
+    "$@" & #-E /var/log/sshd.log
   fi
 fi
 
@@ -55,6 +57,12 @@ fi
 env | grep _ >> /etc/environment
 
 ssh-keygen -A
-exec /usr/sbin/sshd -D -e "${@}"
+set -- /usr/sbin/sshd -e -D "${@}"
 
+#exec "${@}"
+"${@}" &
+
+exec "$(which dind)" dockerd \
+      --host=unix:///var/run/docker.sock \
+      --host=tcp://0.0.0.0:2375
 

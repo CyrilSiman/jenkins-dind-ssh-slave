@@ -21,7 +21,7 @@
 #  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 #  THE SOFTWARE.
 
-from docker:dind
+from docker:17.11-rc-dind
 LABEL MAINTAINER="Cyril Siman <wedroid@gmail.com>"
 
 ARG user=jenkins
@@ -38,21 +38,22 @@ RUN addgroup -g ${gid} ${group} \
 
 # setup SSH server
 RUN apk update \
-    && apk add --no-cache bash openssh openjdk8 git subversion curl wget 
+    && apk add --no-cache sudo bash openssh openjdk8 git subversion curl wget 
 RUN sed -i /etc/ssh/sshd_config \
         -e 's/#PermitRootLogin.*/PermitRootLogin no/' \
         -e 's/#RSAAuthentication.*/RSAAuthentication yes/'  \
         -e 's/#PasswordAuthentication.*/PasswordAuthentication no/' \
         -e 's/#SyslogFacility.*/SyslogFacility AUTH/' \
-        -e 's/#LogLevel.*/LogLevel DEBUG/' \
-    && mkdir /var/run/sshd 
+        -e 's/#LogLevel.*/LogLevel INFO/' \
+    && mkdir /var/run/sshd \
+    && echo "%${group} ALL=(ALL) NOPASSWD: /usr/local/bin/docker" >> /etc/sudoers  
 
 VOLUME "${JENKINS_AGENT_HOME}" "/tmp" "/run" "/var/run"
 WORKDIR "${JENKINS_AGENT_HOME}"
 
-COPY setup-sshd /usr/local/bin/setup-sshd
+COPY setup /usr/local/bin/setup
 
 EXPOSE 22
 
-ENTRYPOINT ["setup-sshd"]
+ENTRYPOINT ["setup"]
 
