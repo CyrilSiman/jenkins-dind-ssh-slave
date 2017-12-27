@@ -6,8 +6,6 @@
 
 [How to use this image with Docker Plugin](#how-to-use-this-image-with-docker-plugin)
 
-[Where is Docker ?](#where-is-docker-?)
-
 [Test in Jenkins](#test-in-jenkins)
 
 [Extend this image](#extend-this-image)
