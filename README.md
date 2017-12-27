@@ -36,7 +36,7 @@ Available on Docker Hub [wedroid/jenkins-dind-ssh-slave](https://hub.docker.com/
 
 To use this image with Jenkins just follow **Launch via SSH** paragraph in this [_page (Docker Plugin)_](https://wiki.jenkins-ci.org/display/JENKINS/Docker+Plugin) and use _wedroid/jenkins-dind-ssh-slave_ instead  _jenkins/ssh-slave_
 
-* This image is made to only works with **Jenkins** ssh user
+* This image is made to only works with **Jenkins** ssh user (Jenkins user have right to use Docker without sudo)
 
   ​
 
@@ -49,24 +49,6 @@ To use this image with Jenkins just follow **Launch via SSH** paragraph in this 
 
 
 ![](https://i.imgur.com/6V9JzNF.png)
-
-
-
-### Where is Docker ?
-
-Docker bin is available in **/usr/local/bin**
-
-Jenkins override builtin PATH environnement variable. Without /usr/local/bin
-
-
-
-#### Tips
-
-Caution : this tips doesn't still work : environement variables aren't correctly save  [Issue opened](https://github.com/jenkinsci/docker-plugin/issues/553)
-
-For convenience, I suggest you to add an environment variable in Docker Agent Templates - Node properties 
-
-![](https://i.imgur.com/4cO8Kp5.png)
 
 
 

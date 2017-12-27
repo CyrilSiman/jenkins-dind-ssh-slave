@@ -48,6 +48,12 @@ RUN sed -i /etc/ssh/sshd_config \
     && mkdir /var/run/sshd \
     && echo "%${group} ALL=(ALL) NOPASSWD: /usr/local/bin/docker" >> /etc/sudoers  
 
+#Update credential for Jenkins user
+RUN delgroup ping \
+    && addgroup -g 999 docker \
+    && addgroup jenkins docker \
+    && ln -s /usr/local/bin/docker /usr/bin/docker 
+
 VOLUME "${JENKINS_AGENT_HOME}" "/tmp" "/run" "/var/run"
 WORKDIR "${JENKINS_AGENT_HOME}"
 
